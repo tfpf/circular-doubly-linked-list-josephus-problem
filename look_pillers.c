@@ -7,7 +7,7 @@
 	This gunner shoots the next man, and gives the gun to the third man.
 	Repeat until there's only one man standing.
 	The gun never runs out of ammunition.
-	(I say 'man' only because women are far too sensible to do this animal-like business.)
+	(I say 'man' only because women are far too sensible to indulge in this animal-like behaviour.)
 	Will try to solve this problem using a circular linked list.
 */
 
@@ -148,6 +148,6 @@ int main(int argc, char **argv)
 	int winner = iterator->index;
 	printf("last man standing: %d\n", winner);
 
-	// in case you want to run this program multiple times using a Bash script
-	return winner;
+	// in case you want to run this program multiple times using a Bash script, uncomment this line
+	// return winner;
 }
