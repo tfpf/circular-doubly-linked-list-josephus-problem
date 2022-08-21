@@ -7,7 +7,6 @@
 	This gunner shoots the next man, and gives the gun to the third man.
 	Repeat until there's only one man standing.
 	The gun never runs out of ammunition.
-	(I say 'man' only because women are far too sensible to indulge in this animal-like behaviour.)
 	Will try to solve this problem using a circular linked list.
 */
 
@@ -112,7 +111,7 @@ int main(int argc, char **argv)
 	}
 
 	// initialize a linked list
-	List *circle; // because stupid men are standing in a circle
+	List *circle; // because men are standing in a circle
 	circle = List_init();
 
 	// add elements to the list
