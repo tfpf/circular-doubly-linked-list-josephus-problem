@@ -1,3 +1,8 @@
+# Circular Doubly-Linked List
+`CDLListNode.c` and `CDLList.c` provide an implementation of a circular
+doubly-linked list of integers. These are used to solve a variant of the
+Josephus problem.
+
 # Josephus Problem
 There are 100 people standing in a circle. One of them has a Beretta M9A3. This
 person shoots the one to their right, and hands over the pistol to the person
