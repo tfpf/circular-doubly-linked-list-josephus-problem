@@ -1,7 +1,19 @@
-# loop killers
-There are 100 men standing in a circle. One of them has a Beretta M9A3. This man shoots the man to his right, and hands over the pistol to the man to the right of the one who just died.
+# Josephus Problem
+There are 100 people standing in a circle. One of them has a Beretta M9A3. This
+person shoots the one to their right, and hands over the pistol to the person
+to the right of the one who just died.
 
-The third man shoots and kills the fourth. He hands over the pistol to the fifth man. This continues till there's only one left. Who is the last man standing?
+The third person shoots the fourth and hands over the pistol to the fifth. This
+continues till there's only one person left. Who will win this fiendish game?
+Run
+```
+make
+```
+and then
+```
+./josephus 100
+```
+to find out.
 
 # Note
 I do not condone violence.
