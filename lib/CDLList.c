@@ -90,3 +90,19 @@ void CDLList_erase(struct CDLList *list, struct CDLListNode *node)
     free(node);
     --list->length;
 }
+
+/******************************************************************************
+ * Erase all elements from a CDL list and deallocate all memory, including that
+ * of the list itself.
+ *
+ * @param list CDL list. This pointer will point to an invalid location after
+ *     this function has returned.
+ *****************************************************************************/
+void CDLList_clear(struct CDLList *list)
+{
+    while(!CDLList_empty(list))
+    {
+        CDLList_erase(list, list->head);
+    }
+    free(list);
+}

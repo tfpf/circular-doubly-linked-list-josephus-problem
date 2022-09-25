@@ -9,7 +9,7 @@
  *
  * @param number_of_people Number of people. Must be positive.
  *****************************************************************************/
-void Josephus_problem(int number_of_people)
+void josephus(int number_of_people)
 {
     struct CDLList *list = CDLList_new();
     for(int i = 1; i <= number_of_people; ++i)
@@ -26,10 +26,7 @@ void Josephus_problem(int number_of_people)
     }
     int winner = curr->item;
     printf("%d is the winner.\n", winner);
-
-    // No memory leaks!
-    CDLList_erase(list, curr);
-    free(list);
+    CDLList_clear(list);
 
     // Check the answer: clear the most significant set bit, double the result,
     // and increment it.
@@ -44,7 +41,7 @@ void Josephus_problem(int number_of_people)
     int actual_winner = (MSB_removed << 1) | 1;
     if(winner != actual_winner)
     {
-        fprintf(stderr, "Wait! Something's wrong. That's not the winner.\n");
+        fprintf(stderr, "Wait! Something's wrong. The winner is actually %d.\n", actual_winner);
     }
 }
 
@@ -67,6 +64,6 @@ int main(int const argc, char const *argv[])
         return EXIT_FAILURE;
     }
 
-    Josephus_problem(number_of_people);
+    josephus(number_of_people);
     return EXIT_SUCCESS;
 }
