@@ -26,7 +26,7 @@ void josephus(int number_of_people)
     }
     int winner = curr->item;
     printf("%d is the winner.\n", winner);
-    CDLList_clear(list);
+    CDLList_delete(list);
 
     // Check the answer: clear the most significant set bit, double the result,
     // and increment it.

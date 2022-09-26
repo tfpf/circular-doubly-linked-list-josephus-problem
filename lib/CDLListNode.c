@@ -18,3 +18,14 @@ struct CDLListNode *CDLListNode_new(int item)
     node->next = NULL;
     return node;
 }
+
+/******************************************************************************
+ * Destroy a CDL list node.
+ *
+ * @param node CDL list node. This pointer will point to an invalid location
+ *     after this function has returned.
+ *****************************************************************************/
+void CDLListNode_delete(struct CDLListNode* node)
+{
+    free(node);
+}

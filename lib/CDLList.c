@@ -6,14 +6,13 @@
 #include "CDLList.h"
 
 /******************************************************************************
- * Construct an empty CDL list.
+ * Construct an empty CDL list whose head is uninitialised.
  *
  * @return Pointer to newly allocated memory.
  *****************************************************************************/
 struct CDLList *CDLList_new(void)
 {
     struct CDLList *list = malloc(sizeof *list);
-    list->head = NULL;
     list->length = 0;
     return list;
 }
@@ -80,26 +79,20 @@ void CDLList_erase(struct CDLList *list, struct CDLListNode *node)
     {
         list->head = list->head->next;
     }
-    if(node->prev != NULL)
-    {
-        node->prev->next = node->next;
-    }
-    if(node->next != NULL)
-    {
-        node->next->prev = node->prev;
-    }
-    free(node);
+    node->prev->next = node->next;
+    node->next->prev = node->prev;
+    CDLListNode_delete(node);
     --list->length;
 }
 
 /******************************************************************************
- * Erase all elements from a CDL list and deallocate all memory, including that
- * of the list itself.
+ * Destroy a CDL list. (Erase all elements from it and deallocate all memory,
+ * including that of the list itself.)
  *
  * @param list CDL list. This pointer will point to an invalid location after
  *     this function has returned.
  *****************************************************************************/
-void CDLList_clear(struct CDLList *list)
+void CDLList_delete(struct CDLList *list)
 {
     while(!CDLList_empty(list))
     {
