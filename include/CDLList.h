@@ -8,7 +8,10 @@
 // Circular doubly-linked list.
 struct CDLList
 {
+    // Read-only.
     struct CDLListNode *head;
+
+    // No access.
     int length;
 };
 

@@ -4,7 +4,10 @@
 // Circular doubly-linked list node.
 struct CDLListNode
 {
+    // Read-write.
     int item;
+
+    // Read-only.
     struct CDLListNode *prev;
     struct CDLListNode *next;
 };
