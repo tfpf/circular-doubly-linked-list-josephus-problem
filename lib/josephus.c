@@ -29,9 +29,9 @@ int long strtol_wrapper(char const *str, int long minimum)
 /******************************************************************************
  * Find the winner in an instance of the Josephus problem.
  *
- * @param number_of_people Number of people. Must be positive.
+ * @param number_of_people Number of people. Must be at least 2.
  * @param step_size Number of people to people to step over. (Specifically:
- *     'Every `step_size`th person is eliminated.') Must be positive.
+ *     'Every `step_size`th person is eliminated.') Must be at least 2.
  *****************************************************************************/
 void josephus(int long number_of_people, int long step_size)
 {
@@ -71,7 +71,7 @@ void josephus(int long number_of_people, int long step_size)
 int main(int const argc, char const *argv[])
 {
     int long number_of_people = 100;
-    if(argc >= 2 && (number_of_people = strtol_wrapper(argv[1], 1)) == -1)
+    if(argc >= 2 && (number_of_people = strtol_wrapper(argv[1], 2)) == -1)
     {
         return EXIT_FAILURE;
     }
