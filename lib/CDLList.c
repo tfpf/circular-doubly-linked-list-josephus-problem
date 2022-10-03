@@ -36,7 +36,7 @@ bool CDLList_empty(struct CDLList *list)
  *
  * @return Length of `list`.
  *****************************************************************************/
-int CDLList_length(struct CDLList *list)
+int long CDLList_length(struct CDLList *list)
 {
     return list->length;
 }
@@ -48,7 +48,7 @@ int CDLList_length(struct CDLList *list)
  * @param list CDL list.
  * @param item Item to append.
  *****************************************************************************/
-void CDLList_insert(struct CDLList *list, int item)
+void CDLList_insert(struct CDLList *list, int long item)
 {
     struct CDLListNode *node = CDLListNode_new(item);
     if(CDLList_empty(list))

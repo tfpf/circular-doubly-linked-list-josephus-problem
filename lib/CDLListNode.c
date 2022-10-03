@@ -10,7 +10,7 @@
  *
  * @return Pointer to newly allocated memory.
  *****************************************************************************/
-struct CDLListNode *CDLListNode_new(int item)
+struct CDLListNode *CDLListNode_new(int long item)
 {
     struct CDLListNode *node = malloc(sizeof *node);
     node->item = item;

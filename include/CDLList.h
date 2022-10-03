@@ -12,13 +12,13 @@ struct CDLList
     struct CDLListNode *head;
 
     // No access.
-    int length;
+    int long length;
 };
 
 struct CDLList *CDLList_new(void);
 bool CDLList_empty(struct CDLList *list);
-int CDLList_length(struct CDLList *list);
-void CDLList_insert(struct CDLList *list, int item);
+int long CDLList_length(struct CDLList *list);
+void CDLList_insert(struct CDLList *list, int long item);
 void CDLList_erase(struct CDLList *list, struct CDLListNode *node);
 void CDLList_delete(struct CDLList *list);
 
