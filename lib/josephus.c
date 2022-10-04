@@ -1,4 +1,5 @@
 #include <errno.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -30,12 +31,13 @@ int long strtol_wrapper(char const *str, int long minimum)
  * Find the winner in an instance of the Josephus problem.
  *
  * @param number_of_people Number of people. Must be at least 2.
- * @param step_size Number of people to people to step over. (Specifically:
- *     'Every `step_size`th person is eliminated.') Must be at least 2.
+ * @param step_size One more than the number of people to people to step over.
+ *     (Specifically: 'Every `step_size`th person is eliminated.') Must be at
+ *     least 2.
  *****************************************************************************/
 void josephus(int long number_of_people, int long step_size)
 {
-    printf("%ld people, numbered from 1 to %ld, are standing in a circle. ", number_of_people, number_of_people);
+    printf("People numbered from 1 to %ld are standing in a circle. ", number_of_people);
     printf("Every %ld", step_size);
     switch(step_size % 10)
     {
@@ -51,10 +53,20 @@ void josephus(int long number_of_people, int long step_size)
         CDLList_insert(list, i);
     }
 
+    // Start from the last person in order to manage the step size correctly in
+    // the first iteration of the loop.
     struct CDLListNode *curr = list->head->prev;
-    while(CDLList_length(list) > 1)
+    while(true)
     {
-        for(int long i = 0; i < step_size - 1; ++i)
+        int long length = CDLList_length(list);
+        if(length == 1)
+        {
+            break;
+        }
+
+        // Step over the correct number of people.
+        int long people_to_step_over = (step_size - 1) % length;
+        for(int long i = 0; i < people_to_step_over; ++i)
         {
             curr = curr->next;
         }
