@@ -1,4 +1,5 @@
 #include <errno.h>
+#include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,7 +22,7 @@ int long strtol_wrapper(char const *str, int long minimum)
     int long val = strtol(str, &endptr, 10);
     if(*endptr != '\0' || errno == ERANGE || val < minimum)
     {
-        fprintf(stderr, "Could not parse %s as an integer ≥ %ld.\n", str, minimum);
+        fprintf(stderr, "Could not parse %s as an integer in the range [%ld, %ld].\n", str, minimum, LONG_MAX);
         return -1;
     }
     return val;
