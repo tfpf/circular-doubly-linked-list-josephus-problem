@@ -11,8 +11,8 @@
  * @param str String.
  * @param minimum Minimum permitted number.
  *
- * @return Positive integer greater than or equal to `minimum`, or -1 if that
- *     is not possible.
+ * @return Integer greater than or equal to `minimum`, or -1 if that is not
+ *     possible.
  *****************************************************************************/
 int long strtol_wrapper(char const *str, int long minimum)
 {
