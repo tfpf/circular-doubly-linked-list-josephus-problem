@@ -35,8 +35,9 @@ int long strtol_wrapper(char const *str, int long minimum)
  * @param step_size One more than the number of people to people to step over.
  *     (Specifically: 'Every `step_size`th person is eliminated.') Must be at
  *     least 2.
+ * @param show_eliminated Whether to display the people who get eliminated.
  *****************************************************************************/
-void josephus(int long number_of_people, int long step_size)
+void josephus(int long number_of_people, int long step_size, bool show_eliminated)
 {
     printf("People numbered from 1 to %ld are standing in a circle. ", number_of_people);
     printf("Every %ld", step_size);
@@ -71,6 +72,10 @@ void josephus(int long number_of_people, int long step_size)
         {
             curr = curr->next;
         }
+        if(show_eliminated)
+        {
+            printf("%ld eliminated.\n", curr->next->item);
+        }
         CDLList_erase(list, curr->next);
     }
     int long winner = curr->item;
@@ -94,6 +99,6 @@ int main(int const argc, char const *argv[])
         return EXIT_FAILURE;
     }
 
-    josephus(number_of_people, step_size);
+    josephus(number_of_people, step_size, false);
     return EXIT_SUCCESS;
 }
