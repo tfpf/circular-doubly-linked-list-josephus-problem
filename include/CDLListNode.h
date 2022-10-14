@@ -13,6 +13,6 @@ struct CDLListNode
 };
 
 struct CDLListNode *CDLListNode_new(int long item);
-void CDLListNode_delete(struct CDLListNode* node);
+void CDLListNode_delete(struct CDLListNode *node);
 
 #endif  // CIRCULAR_DOUBLY_LINKED_LIST_JOSEPHUS_PROBLEM_INCLUDE_CDLLISTNODE_H_

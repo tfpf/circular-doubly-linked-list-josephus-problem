@@ -25,7 +25,7 @@ struct CDLListNode *CDLListNode_new(int long item)
  * @param node CDL list node. This pointer will point to an invalid location
  *     after this function has returned.
  *****************************************************************************/
-void CDLListNode_delete(struct CDLListNode* node)
+void CDLListNode_delete(struct CDLListNode *node)
 {
     free(node);
 }
